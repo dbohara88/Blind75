@@ -1,18 +1,17 @@
 import java.util.Scanner;
 
 public class ContainsDuplicate {
-    public boolean hasDuplicate(int[] nums, int size)
+    public boolean hasDuplicate(int[] nums)
     {
-        int l = nums.length;
-        for(int i=0; i<size; i++)
+        for(int i=0; i<nums.length; i++)
         {
-            for(int j=i+1; j<size; j++)
+            for(int j=i+1; j<nums.length; j++)
             {
                 if(nums[i] == nums[j])
-                    return false;
+                    return true;
             }
         }
-        return true;   
+        return false;   
     }
     
     public static void main(String[] args)
@@ -29,7 +28,7 @@ public class ContainsDuplicate {
         }
 
         ContainsDuplicate cd = new ContainsDuplicate();
-        if(!cd.hasDuplicate(arr, size))
+        if(cd.hasDuplicate(arr))
         {
             System.out.println("true");
         }
