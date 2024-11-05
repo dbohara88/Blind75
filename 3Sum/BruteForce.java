@@ -8,33 +8,25 @@ import java.util.Set;
 
 public class BruteForce {
     public List<List<Integer>> threeSum(int[] nums) {
-        //List<List<Integer>> ans = new ArrayList<>();
         
-
+        Arrays.sort(nums);
         Set<List<Integer>> innerList = new HashSet<>();
 
-        for(int i=0; i<nums.length; i++) {
-            
+        for(int i=0; i<nums.length; i++)
+        {
             for(int j=i+1; j<nums.length; j++)
             {
                 for(int k=j+1; k<nums.length; k++)
                 {
-                    if(nums[i] + nums[j] + nums[k] == 0) 
+                    if(nums[i]+nums[j]+nums[k] == 0)
                     {
-                        List<Integer> temp = new ArrayList<>();
-                        temp.add(nums[i]);
-                        temp.add(nums[j]);
-                        temp.add(nums[k]);
-                        Collections.sort(temp);
-                        innerList.add(temp);
+                        List<Integer> tmp = Arrays.asList(nums[i], nums[j], nums[k]);
+                        innerList.add(tmp);
                     }
-                  
                 }
             }
         }
-       // List<Integer> innerLists = new ArrayList<>(innerList);
-       List<List<Integer>> ans = new ArrayList<>(innerList);
-        return ans;
+        return new ArrayList<>(innerList);
     }
     public static void main(String[] args) {
         Scanner ss = new Scanner(System.in);
