@@ -5,12 +5,19 @@ public class TwoPointer {
 
         int ans = Integer.MIN_VALUE;
 
-        for(int i=0; i<height.length; i++)
-        {
-            int j = 1 + 1;
-            int currentVal = (Math.min(height[1], height[j])) * (j-1);
-            if(currentVal > ans)
+        int i = 0;
+        int j = height.length - 1;
+        while(i < j) {
+            int currentVal = Math.min(height[i], height[j]) * (j-i);
+            ans = Math.max(ans, currentVal);
+            if(height[i] <= height[j]) {
+                i++;
+            }
+            else {
+                j--;
+            }
         }
+        return ans;
     }
     public static void main(String[] args) {
         
